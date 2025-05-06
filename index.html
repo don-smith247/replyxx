@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReplyFi - Hero with Wallet Form</title>
+  <link rel="stylesheet" href="./style.css">
+ 
+</head>
+<body>
+
+      <!-- Navigation -->
+  <nav class="nav-container" id="nav">
+    <div class="nav-wrapper">
+      <a href="#" class="nav-logo">
+        <img src="./logo.jpg" alt="ReplyFi Logo" class="nav-logo-img">
+        
+      </a>
+
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#" class="nav-link active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="./fatures.html" class="nav-link">Features</a>
+          <div class="dropdown">
+            <a href="#" class="dropdown-item">
+              <span class="dropdown-label">Social Engagement</span>
+              <span class="dropdown-description">Boost your social presence</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span class="dropdown-label">Reply Economy</span>
+              <span class="dropdown-description">Monetize your conversations</span>
+            </a>
+            <a href="./analytics.html" class="dropdown-item featured">
+              <span class="dropdown-label">Reply Analytics</span>
+              <span class="dropdown-description">Track your engagement metrics</span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span class="dropdown-label">Community Tools</span>
+              <span class="dropdown-description">Build your reply network</span>
+            </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="./about.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Contact</a>
+          <span class="notification-badge">3</span>
+        </li>
+      </ul>
+
+      <div class="nav-buttons">
+        <a href="./registration.html" class="nav-button nav-button-register">
+          <span class="wallet-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <circle cx="16" cy="12" r="2" />
+              <path d="M22 10V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2" />
+            </svg>
+          </span>
+          Register
+        </a>
+      </div>
+
+      <button class="hamburger" id="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-menu">
+      <li class="mobile-nav-item">
+        <a href="#" class="mobile-nav-link">Home</a>
+      </li>
+      <li class="mobile-nav-item">
+        <a href="./fatures.html" class="mobile-nav-link">Features</a>
+        <button class="mobile-dropdown-toggle" data-toggle="features-dropdown">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="mobile-dropdown" id="features-dropdown">
+          <div class="mobile-dropdown-item">
+            <a href="#" class="mobile-dropdown-link">Social Engagement</a>
+          </div>
+          <div class="mobile-dropdown-item">
+            <a href="#" class="mobile-dropdown-link">Reply Economy</a>
+          </div>
+          <div class="mobile-dropdown-item">
+            <a href="./analytics.html" class="mobile-dropdown-link">Reply Analytics</a>
+          </div>
+          <div class="mobile-dropdown-item">
+            <a href="#" class="mobile-dropdown-link">Community Tools</a>
+          </div>
+        </div>
+      </li>
+      <li class="mobile-nav-item">
+        <a href="./about.html" class="mobile-nav-link">About</a>
+      </li>
+      <li class="mobile-nav-item">
+        <a href="#" class="mobile-nav-link">Pricing</a>
+      </li>
+      <li class="mobile-nav-item">
+        <a href="#" class="mobile-nav-link">Contact</a>
+        <span class="notification-badge">3</span>
+      </li>
+    </ul>
+
+    <div class="mobile-nav-buttons">
+     
+      <a href="#" class="mobile-nav-button mobile-nav-button-register">
+        <span class="wallet-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <circle cx="16" cy="12" r="2" />
+            <path d="M22 10V8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2" />
+          </svg>
+        </span>
+        Register
+      </a>
+    </div>
+  </div>
+
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+ 
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="floating-elements" id="floating-elements"></div>
+    <div class="mesh-gradient"></div>
+    
+    <div class="hero-content">
+      <div class="hero-badge" id="hero-badge">LAUNCHING SOON</div>
+      
+      <div class="hero-logo" id="hero-logo">
+        <svg class="crown-left" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5ZM19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
+        </svg>
+        <svg class="crown-right" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5ZM19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z" />
+        </svg>
+      </div>
+      
+      <h1 id="hero-title">
+        <span>The</span> <span class="highlight">Reply Community</span> <span>Starts Here</span>
+      </h1>
+      
+      <p id="hero-description">
+        Join the community that's redefining social engagement. Build reach, connect with reply guys, and unlock the value of conversations.
+      </p>
+
+      <!-- Wallet Form Added Here -->
+      <div class="wallet-form-container">
+        <div class="wallet-form" id="wallet-form">
+          <div class="wallet-form-header">
+            <h3 class="wallet-form-title">Join the Reply Community</h3>
+            <p class="wallet-form-description">Submit your wallet address to get early access</p>
+          </div>
+          
+          <form id="address-form">
+            <div class="wallet-input-group">
+              <input 
+                type="text" 
+                class="wallet-input" 
+                id="wallet-address" 
+                placeholder="Enter your wallet address (0x...)" 
+                autocomplete="off"
+              >
+            </div>
+
+            <button type="submit" class="submit-btn" id="submit-btn">
+              <span>Submit Address</span>
+            </button>
+          </form>
+
+          <!-- Success message -->
+          <div class="success-message" id="success-message">
+            <div class="success-content">
+              <div class="success-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+              </div>
+              <h3 class="success-title">Address Submitted!</h3>
+              <p class="success-text">Your wallet address has been successfully registered.</p>
+              <button class="success-btn" id="close-success">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cta-buttons" id="cta-buttons">
+        <a href="#" class="btn btn-primary">Get Started</a>
+        <a href="#" class="btn btn-secondary">Learn More</a>
+      </div>
+      
+      <div class="stats-counter" id="stats-counter">
+        <div class="stat-item">
+          <div class="stat-value">
+            <span id="users-count">0</span>k+
+          </div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">
+            <span id="replies-count">0</span>M+
+          </div>
+          <div class="stat-label">Daily Replies</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">
+            <span id="growth-count">0</span>%
+          </div>
+          <div class="stat-label">Monthly Growth</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Animated Reply Bubbles -->
+    <div class="reply-bubble" id="bubble1" style="top: 25%; left: 15%;">
+      <div class="avatar">JM</div>
+      <div class="content">
+        <span class="username">@JuliaMasters</span>
+        <span class="text">ReplyFi changed my social strategy completely!</span>
+      </div>
+    </div>
+    
+    <div class="reply-bubble" id="bubble2" style="top: 40%; right: 10%;">
+      <div class="avatar">TS</div>
+      <div class="content">
+        <span class="username">@TechStartup</span>
+        <span class="text">We've seen 3x engagement since joining!</span>
+      </div>
+    </div>
+    
+    <div class="reply-bubble" id="bubble3" style="bottom: 30%; left: 20%;">
+      <div class="avatar">RG</div>
+      <div class="content">
+        <span class="username">@ReplyGuy</span>
+        <span class="text">Finally, a platform that understands us!</span>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator" id="scroll-indicator">
+      <span>Scroll to explore</span>
+      <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 14l-7 7-7-7M19 8l-7 7-7-7" />
+      </svg>
+    </div>
+  </section>
+  <section id="features" class="section features">
+    <div class="container">
+        <h2 class="section-title">Our Features</h2>
+        <div class="features-container">
+            <div class="feature-card delay-100">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 16.938V19h5v2H6v-2h5v-2.062A8.001 8.001 0 0 1 4 9V3h16v6a8.001 8.001 0 0 1-7 7.938zM6 5v4a6 6 0 1 0 12 0V5H6zM1 5h2v4H1V5zm20 0h2v4h-2V5z" fill="white"/></svg>
+                </div>
+                <h3 class="feature-title">Powered Replies</h3>
+                <p class="feature-desc">Automatically generate personalized responses to increase your engagement and save valuable time.</p>
+            </div>
+            <div class="feature-card delay-200">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z" fill="white"/></svg>
+                </div>
+                <h3 class="feature-title">Real-Time Analytics</h3>
+                <p class="feature-desc">Track your engagement metrics and optimize your communication strategy with comprehensive dashboards.</p>
+            </div>
+            <div class="feature-card delay-300">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h18zm-1 2H4v14h16V5zM8 7h8v2H8V7zm0 4h8v2H8v-2zm0 4h5v2H8v-2z" fill="white"/></svg>
+                </div>
+                <h3 class="feature-title">Multi-Platform Support</h3>
+                <p class="feature-desc">Seamlessly integrate with all major social platforms and manage everything from one centralized dashboard.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: TESTIMONIALS -->
+<section id="testimonials" class="section testimonials">
+    <div class="container testimonials-container">
+        <h2 class="section-title">What Our Community Member Says</h2>
+        <div class="testimonials-slider">
+            <div class="testimonials-track">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">ReplyFi transformed how I handle social media. With the AI-powered replies, I've increased my engagement by 320% while cutting my response time in half!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="./beebrain.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Sarah Johnson</h4>
+                            <p class="author-role">Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button class="slider-btn prev">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" fill="white"/></svg>
+            </button>
+            <button class="slider-btn next">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="white"/></svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: CALL TO ACTION/CONTACT -->
+<section id="contact" class="section cta">
+    <div class="container cta-container">
+        <div class="cta-text">
+            <h2 class="cta-heading">Ready to Transform Your Social Engagement?</h2>
+            <p class="cta-subheading">Join thousands of creators and businesses that have already revolutionized their social media presence with ReplyFi.</p>
+        </div>
+        <div class="cta-form">
+            <h3 class="form-title">Get Started Today</h3>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" class="form-input form-textarea" placeholder="Tell us about your needs"></textarea>
+                </div>
+                <button type="submit" class="form-submit">Get started</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+  <footer class="footer">
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="crown-logo">
+                        <div class="crown-base"></div>
+                        <div class="crown-overlay"></div>
+                        <div class="crown-jewel"></div>
+                    </div>
+                    <div class="logo-text">ReplyFi</div>
+                </div>
+                <p class="footer-tagline">Building Reach • Reply Guys Will Win • The Reply Economy Starts Here</p>
+                <p class="footer-description">
+                    ReplyFi helps you build your online presence through strategic engagement and community building. Increase your reach and influence with our smart reply-based growth strategies.
+                </p>
+                <div class="footer-metrics">
+                    <div class="metric">
+                        <span class="metric-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0aec0" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </span>
+                        <span class="metric-text">254 Followers</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a0aec0" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </span>
+                        <span class="metric-text">Est. May 2025</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-nav-section">
+                <div class="footer-nav">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-nav-section">
+                <div class="footer-nav">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">API Docs</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-nav-section">
+                <div class="footer-nav">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-connect">
+                <h3>Stay Connected</h3>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email">
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+                <div class="social-connect">
+                    <p class="social-text">Follow us on social media</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Community Guidelines</a>
+                </div>
+                <div class="footer-copyright">
+                    © 2025 ReplyFi. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+ <script src="./script.js"></script>
+</body>
+</html>

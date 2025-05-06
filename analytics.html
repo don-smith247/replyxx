@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReplyFi - Community Dashboard</title>
+    <style>
+        :root {
+            --navy: #1a2743;
+            --blue: #3d93dd;
+            --light-blue: #a8d0f0;
+            --bronze: #cd7f32;
+            --silver: #c0c0c0;
+            --gold: #ffd700;
+            --bg-dark: #111827;
+            --bg-medium: #1f2937;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--bg-medium);
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--navy) 50%, var(--blue) 50%);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .crown {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 18px;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .crown-point {
+            width: 4px;
+            height: 12px;
+            background-color: white;
+            border-radius: 1px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--navy), var(--blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+        
+        nav a:hover {
+            background-color: var(--bg-medium);
+        }
+        
+        .active {
+            background-color: var(--bg-medium);
+            font-weight: 600;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        .user-info {
+            background-color: var(--bg-medium);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #2a3854;
+            border: 4px solid var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: var(--text-light);
+        }
+        
+        .username {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .user-id {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        .level-progress {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .level-info {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .level-bar {
+            height: 10px;
+            background-color: var(--bg-dark);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .level-fill {
+            height: 100%;
+            width: 75%;
+            background: linear-gradient(90deg, var(--blue), var(--light-blue));
+            border-radius: 5px;
+        }
+        
+        .card-system {
+            margin-top: 24px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--text-muted);
+        }
+        
+        .cards {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .card {
+            flex: 1;
+            background-color: var(--bg-dark);
+            border-radius: 12px;
+            padding: 16px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        
+        .bronze-card::before {
+            background-color: var(--bronze);
+        }
+        
+        .silver-card::before {
+            background-color: var(--silver);
+        }
+        
+        .gold-card::before {
+            background: linear-gradient(90deg, var(--gold), var(--blue));
+        }
+        
+        .card-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .card-stats {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        .card-status {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        
+        .active-status {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+        
+        .locked-status {
+            background-color: rgba(156, 163, 175, 0.2);
+            color: var(--text-muted);
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .filter-options {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .filter-button {
+            background-color: var(--bg-medium);
+            border: none;
+            color: var(--text-light);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .filter-button:hover {
+            background-color: #2a3854;
+        }
+        
+        .filter-active {
+            background-color: var(--blue);
+        }
+        
+        .leaderboard {
+            background-color: var(--bg-medium);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .leaderboard-header {
+            display: grid;
+            grid-template-columns: 0.2fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr;
+            padding: 16px 24px;
+            background-color: var(--navy);
+            font-weight: 600;
+        }
+        
+        .leaderboard-row {
+            display: grid;
+            grid-template-columns: 0.2fr 0.5fr 1fr 0.5fr 0.5fr 0.5fr;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--bg-dark);
+            align-items: center;
+        }
+        
+        .leaderboard-row:hover {
+            background-color: rgba(61, 147, 221, 0.1);
+        }
+        
+        .rank {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--blue);
+        }
+        
+        .rank-top {
+            color: var(--gold);
+        }
+        
+        .user-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #2a3854;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .user-name {
+            font-weight: 500;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .badge-rookie {
+            background-color: rgba(205, 127, 50, 0.2);
+            color: var(--bronze);
+        }
+        
+        .badge-champion {
+            background-color: rgba(192, 192, 192, 0.2);
+            color: var(--silver);
+        }
+        
+        .badge-royalty {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--gold);
+        }
+        
+        .category-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .category-card {
+            background-color: var(--bg-medium);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .category-leaders {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .leader-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .leader-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .leader-rank {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--blue);
+        }
+        
+        .leader-score {
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-img">
+                    <div class="crown">
+                        <div class="crown-point"></div>
+                        <div class="crown-point"></div>
+                        <div class="crown-point"></div>
+                        <div class="crown-point"></div>
+                        <div class="crown-point"></div>
+                    </div>
+                </div>
+                <div class="logo-text">ReplyFi</div>
+            </div>
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Leaderboard</a>
+                <a href="#">My Cards</a>
+                <a href="#">Community</a>
+            </nav>
+        </header>
+        
+        <div class="dashboard">
+            <div class="user-info">
+                <div class="profile">
+                    <div class="avatar">R</div>
+                    <div class="username">ReplyMaster</div>
+                    <div class="user-id">@ReplyMaster</div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">327</div>
+                        <div class="stat-label">Replies</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Level</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Rank</div>
+                    </div>
+                </div>
+                
+                <div class="level-progress">
+                    <div class="level-info">
+                        <div>Level 18</div>
+                        <div>75%</div>
+                    </div>
+                    <div class="level-bar">
+                        <div class="level-fill"></div>
+                    </div>
+                    <div class="level-info">
+                        <div>Reply Champion</div>
+                        <div>246/350 XP</div>
+                    </div>
+                </div>
+                
+                <div class="card-system">
+                    <div class="section-title">Your Reply Cards</div>
+                    <div class="cards">
+                        <div class="card bronze-card">
+                            <div class="card-title">Rookie Replier</div>
+                            <div class="card-stats">100% Complete</div>
+                            <div class="card-status active-status">Mastered</div>
+                        </div>
+                        <div class="card silver-card">
+                            <div class="card-title">Reply Champion</div>
+                            <div class="card-stats">75% Complete</div>
+                            <div class="card-status active-status">Active</div>
+                        </div>
+                        <div class="card gold-card">
+                            <div class="card-title">Reply Royalty</div>
+                            <div class="card-stats">0% Complete</div>
+                            <div class="card-status locked-status">Locked</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="leaderboard-section">
+                    <div class="section-header">
+                        <h2>Global Leaderboard</h2>
+                        <div class="filter-options">
+                            <button class="filter-button filter-active">Daily</button>
+                            <button class="filter-button">Weekly</button>
+                            <button class="filter-button">Monthly</button>
+                            <button class="filter-button">All Time</button>
+                        </div>
+                    </div>
+                    
+                    <div class="leaderboard">
+                        <div class="leaderboard-header">
+                            <div>Rank</div>
+                            <div>Level</div>
+                            <div>User</div>
+                            <div>Replies</div>
+                            <div>Engagement</div>
+                            <div>Status</div>
+                        </div>
+                        
+                        <div class="leaderboard-row">
+                            <div class="rank rank-top">1</div>
+                            <div>30</div>
+                            <div class="user-cell">
+                                <div class="user-avatar">K</div>
+                                <div class="user-name">KingReplier</div>
+                            </div>
+                            <div>1,432</div>
+                            <div>97%</div>
+                            <div><span class="badge badge-royalty">Royalty</span></div>
+                        </div>
+                        
+                        <div class="leaderboard-row">
+                            <div class="rank rank-top">2</div>
+                            <div>29</div>
+                            <div class="user-cell">
+                                <div class="user-avatar">R</div>
+                                <div class="user-name">ReplyQueen</div>
+                            </div>
+                            <div>1,287</div>
+                            <div>95%</div>
+                            <div><span class="badge badge-royalty">Royalty</span></div>
+                        </div>
+                        
+                        <div class="leaderboard-row">
+                            <div class="rank rank-top">3</div>
+                            <div>27</div>
+                            <div class="user-cell">
+                                <div class="user-avatar">S</div>
+                                <div class="user-name">SuperReplier</div>
+                            </div>
+                            <div>1,102</div>
+                            <div>92%</div>
+                            <div><span class="badge badge-royalty">Royalty</span></div>
+                        </div>
+                        
+                        <div class="leaderboard-row">
+                            <div class="rank">4</div>
+                            <div>26</div>
+                            <div class="user-cell">
+                                <div class="user-avatar">E</div>
+                                <div class="user-name">EliteResponder</div>
+                            </div>
+                            <div>978</div>
+                            <div>89%</div>
+                            <div><span class="badge badge-royalty">Royalty</span></div>
+                        </div>
+                        
+                        <div class="leaderboard-row">
+                            <div class="rank">5</div>
+                            <div>24</div>
+                            <div class="user-cell">
+                                <div class="user-avatar">P</div>
+                                <div class="user-name">ProReplier</div>
+                            </div>
+                            <div>867</div>
+                            <div>86%</div>
+                            <div><span class="badge badge-royalty">Royalty</span></div>
+                        </div>
+                        
+                        <div class="leaderboard-row">
+                            <div class="rank">42</div>
+                            <div>18</div>
+                            <div class="user-cell">
+                                <div class="user-avatar">R</div>
+                                <div class="user-name">ReplyMaster</div>
+                            </div>
+                            <div>327</div>
+                            <div>78%</div>
+                            <div><span class="badge badge-champion">Champion</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="category-section">
+                    <div class="section-header">
+                        <h2>Category Leaderboards</h2>
+                    </div>
+                    
+                    <div class="category-cards">
+                        <div class="category-card">
+                            <div class="category-title">Most Valuable Replies</div>
+                            <div class="category-leaders">
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">1.</div>
+                                        <div class="user-avatar">K</div>
+                                        <div>KingReplier</div>
+                                    </div>
+                                    <div class="leader-score">98</div>
+                                </div>
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">2.</div>
+                                        <div class="user-avatar">R</div>
+                                        <div>ReplyQueen</div>
+                                    </div>
+                                    <div class="leader-score">95</div>
+                                </div>
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">3.</div>
+                                        <div class="user-avatar">S</div>
+                                        <div>SuperReplier</div>
+                                    </div>
+                                    <div class="leader-score">92</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-title">Reply Streaks</div>
+                            <div class="category-leaders">
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">1.</div>
+                                        <div class="user-avatar">E</div>
+                                        <div>EliteResponder</div>
+                                    </div>
+                                    <div class="leader-score">56 days</div>
+                                </div>
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">2.</div>
+                                        <div class="user-avatar">K</div>
+                                        <div>KingReplier</div>
+                                    </div>
+                                    <div class="leader-score">48 days</div>
+                                </div>
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">3.</div>
+                                        <div class="user-avatar">R</div>
+                                        <div>ReplyMaster</div>
+                                    </div>
+                                    <div class="leader-score">32 days</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-title">Rising Stars</div>
+                            <div class="category-leaders">
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">1.</div>
+                                        <div class="user-avatar">N</div>
+                                        <div>NewReplier</div>
+                                    </div>
+                                    <div class="leader-score">+245%</div>
+                                </div>
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">2.</div>
+                                        <div class="user-avatar">F</div>
+                                        <div>FastRiser</div>
+                                    </div>
+                                    <div class="leader-score">+187%</div>
+                                </div>
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">3.</div>
+                                        <div class="user-avatar">U</div>
+                                        <div>UpAndComer</div>
+                                    </div>
+                                    <div class="leader-score">+156%</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-title">Community Champions</div>
+                            <div class="category-leaders">
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">1.</div>
+                                        <div class="user-avatar">S</div>
+                                        <div>SuperReplier</div>
+                                    </div>
+                                    <div class="leader-score">Crypto</div>
+                                </div>
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">2.</div>
+                                        <div class="user-avatar">P</div>
+                                        <div>ProReplier</div>
+                                    </div>
+                                    <div class="leader-score">Tech</div>
+                                </div>
+                                <div class="leader-item">
+                                    <div class="leader-info">
+                                        <div class="leader-rank">3.</div>
+                                        <div class="user-avatar">R</div>
+                                        <div>ReplyQueen</div>
+                                    </div>
+                                    <div class="leader-score">Finance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

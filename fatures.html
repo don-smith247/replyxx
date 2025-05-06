@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReplyFi Website Sections</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f8fa;
+            color: #1a2a3a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: #1a2a3a;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .section-title.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #0a2540, #2e86de);
+            margin: 15px auto 0;
+        }
+
+        /* SECTION 1: FEATURES/SERVICES */
+        .features {
+            background-color: #fff;
+        }
+
+        .features-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .feature-card {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .feature-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(46, 134, 222, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a2540, #2e86de);
+            border-radius: 50%;
+            color: white;
+            font-size: 32px;
+        }
+
+        .feature-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        .feature-title {
+            margin-bottom: 15px;
+            color: #0a2540;
+            font-size: 22px;
+        }
+
+        .feature-desc {
+            color: #6c7a89;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* SECTION 2: TESTIMONIALS */
+        .testimonials {
+            background: linear-gradient(135deg, #0a2540, #2e86de);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .testimonials-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials .section-title {
+            color: white;
+        }
+
+        .testimonials .section-title::after {
+            background: white;
+        }
+
+        .testimonials-slider {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            flex: 0 0 100%;
+            padding: 30px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease;
+        }
+
+        .testimonial.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .testimonial-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-content::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: "";
+            font-size: 60px;
+            font-family: Georgia, serif;
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            content: "";
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid white;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .author-role {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .slider-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .slider-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        /* SECTION 3: CALL TO ACTION/CONTACT */
+        .cta {
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a2540, #2e86de);
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+            opacity: 0.05;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .cta-text {
+            flex: 1 1 400px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+
+        .cta-text.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .cta-heading {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #0a2540;
+        }
+
+        .cta-subheading {
+            font-size: 1.1rem;
+            color: #6c7a89;
+            margin-bottom: 30px;
+        }
+
+        .cta-form {
+            flex: 1 1 450px;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.8s ease;
+        }
+
+        .cta-form.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #0a2540;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #0a2540;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d9e2ec;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2e86de;
+            box-shadow: 0 0 0 3px rgba(46, 134, 222, 0.2);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            display: inline-block;
+            background: linear-gradient(to right, #0a2540, #2e86de);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 14px 30px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(46, 134, 222, 0.3);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .feature-card {
+                flex: 1 1 100%;
+            }
+
+            .testimonial-content {
+                padding: 30px;
+            }
+
+            .cta-container {
+                gap: 30px;
+            }
+
+            .cta-heading {
+                font-size: 1.8rem;
+            }
+
+            .cta-form {
+                padding: 30px;
+            }
+        }
+
+        /* Animation Delay Utilities */
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-400 {
+            transition-delay: 0.4s;
+        }
+
+        .delay-500 {
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- SECTION 1: FEATURES/SERVICES -->
+    <section id="features" class="section features">
+        <div class="container">
+            <h2 class="section-title">Our Features</h2>
+            <div class="features-container">
+                <div class="feature-card delay-100">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 16.938V19h5v2H6v-2h5v-2.062A8.001 8.001 0 0 1 4 9V3h16v6a8.001 8.001 0 0 1-7 7.938zM6 5v4a6 6 0 1 0 12 0V5H6zM1 5h2v4H1V5zm20 0h2v4h-2V5z" fill="white"/></svg>
+                    </div>
+                    <h3 class="feature-title">AI-Powered Replies</h3>
+                    <p class="feature-desc">Automatically generate personalized responses to increase your engagement and save valuable time.</p>
+                </div>
+                <div class="feature-card delay-200">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z" fill="white"/></svg>
+                    </div>
+                    <h3 class="feature-title">Real-Time Analytics</h3>
+                    <p class="feature-desc">Track your engagement metrics and optimize your communication strategy with comprehensive dashboards.</p>
+                </div>
+                <div class="feature-card delay-300">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h18zm-1 2H4v14h16V5zM8 7h8v2H8V7zm0 4h8v2H8v-2zm0 4h5v2H8v-2z" fill="white"/></svg>
+                    </div>
+                    <h3 class="feature-title">Multi-Platform Support</h3>
+                    <p class="feature-desc">Seamlessly integrate with all major social platforms and manage everything from one centralized dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: TESTIMONIALS -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container testimonials-container">
+            <h2 class="section-title">What Our Users Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonials-track">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">ReplyFi transformed how I handle social media. With the AI-powered replies, I've increased my engagement by 320% while cutting my response time in half!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <img src="/api/placeholder/60/60" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Sarah Johnson</h4>
+                                <p class="author-role">Marketing Director</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="slider-btn prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" fill="white"/></svg>
+                </button>
+                <button class="slider-btn next">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="white"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CALL TO ACTION/CONTACT -->
+    <section id="contact" class="section cta">
+        <div class="container cta-container">
+            <div class="cta-text">
+                <h2 class="cta-heading">Ready to Transform Your Social Engagement?</h2>
+                <p class="cta-subheading">Join thousands of creators and businesses that have already revolutionized their social media presence with ReplyFi.</p>
+            </div>
+            <div class="cta-form">
+                <h3 class="form-title">Get Started Today</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" class="form-input" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="Your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" class="form-input form-textarea" placeholder="Tell us about your needs"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Start Free Trial</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Animations and Interactivity -->
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add animations to section titles
+                    const title = entry.target.querySelector('.section-title');
+                    if (title) title.classList.add('animate');
+
+                    // Add animations to feature cards
+                    const featureCards = entry.target.querySelectorAll('.feature-card');
+                    featureCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate');
+                        }, 200 * index);
+                    });
+
+                    // Add animations to testimonials
+                    const testimonial = entry.target.querySelector('.testimonial');
+                    if (testimonial) testimonial.classList.add('animate');
+
+                    // Add animations to CTA section
+                    const ctaText = entry.target.querySelector('.cta-text');
+                    const ctaForm = entry.target.querySelector('.cta-form');
+                    if (ctaText) ctaText.classList.add('animate');
+                    if (ctaForm) ctaForm.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Testimonials Slider Functionality
+        const testimonialsData = [
+            {
+                text: "ReplyFi transformed how I handle social media. With the AI-powered replies, I've increased my engagement by 320% while cutting my response time in half!",
+                name: "Sarah Johnson",
+                role: "Marketing Director"
+            },
+            {
+                text: "As a content creator, I was drowning in comments. ReplyFi helped me maintain authentic connections with my audience while scaling my reach exponentially.",
+                name: "Mark Williams",
+                role: "YouTube Creator"
+            },
+            {
+                text: "The analytics dashboard gives me insights I never had before. I can now see exactly what works and what doesn't in my social strategy.",
+                name: "Jennifer Lopez",
+                role: "Small Business Owner"
+            }
+        ];
+
+        let currentSlide = 0;
+        const track = document.querySelector('.testimonials-track');
+        const nextBtn = document.querySelector('.slider-btn.next');
+        const prevBtn = document.querySelector('.slider-btn.prev');
+        
+        // Create testimonial slides
+        function createSlides() {
+            track.innerHTML = '';
+            testimonialsData.forEach((item, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'testimonial';
+                slide.innerHTML = `
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">${item.text}</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/60/60" alt="${item.name}">
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">${item.name}</h4>
+                            <p class="author-role">${item.role}</p>
+                        </div>
+                    </div>
+                `;
+                track.appendChild(slide);
+            });
+            
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const slideWidth = track.clientWidth;
+            track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            
+            // Add animation class to current slide
+            document.querySelectorAll('.testimonial').forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('animate');
+                } else {
+                    slide.classList.remove('animate');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % testimonialsData.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + testimonialsData.length) % testimonialsData.length;
+            updateSlider();
+        }
+
+        // Initialize slider
+        createSlides();
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // Auto slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            updateSlider();
+        });
+
+        // Form submission (prevent default for demo)
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your interest! In a real implementation, this form would submit your information.');
+            });
+        }
+    </script>
+</body>
+</html>

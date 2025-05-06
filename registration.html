@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-card">
+          <div class="register-header">
+            <img src="./logo.jpg" alt="ReplyFi Logo" class="logo" style=" width: 100px ;border-radius: 50%;"/>
+            <h1>Join ReplyFi</h1>
+            <p class="tagline">The Reply Community Starts Here</p>
+          </div>
+          
+          <form class="register-form">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="Enter your full name" required />
+            </div>
+            
+            <div class="form-group">
+              <label for="username">Username</label>
+              <div class="username-input">
+                <span class="at-symbol">@</span>
+                <input type="text" id="username" placeholder="Choose a username" required />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter your email" required />
+            </div>
+            
+            
+            
+            <div class="checkbox-group">
+              <input type="checkbox" id="followOnX" />
+              <label for="followOnX">
+                <span>I'm following ReplyFi on X</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="x-icon">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </label>
+            </div>
+            
+            <div class="checkbox-group">
+              <input type="checkbox" id="termsAgree" required />
+              <label for="termsAgree">I agree to the <a href="#" class="text-link">Terms of Service</a> and <a href="#" class="text-link">Privacy Policy</a></label>
+            </div>
+            
+            <button type="submit" class="register-btn">Register</button>
+          </form>
+          
+          <div class="register-footer">
+            <p>Already have an account? <a href="#" class="text-link">Sign In</a></p>
+          </div>
+        </div>
+        
+        <div class="benefits-panel">
+          <h2>Why Join ReplyFi?</h2>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M13.13 22.19L11.5 18.36C13.07 17.78 14.54 17 15.9 16.09L13.13 22.19M5.64 12.5L1.81 10.87L7.91 8.1C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39C21.61 2.39 16.66 .269 11 5.93C8.81 8.12 7.5 10.53 6.65 12.64C6.37 13.39 6.56 14.21 7.11 14.77L9.24 16.89C9.79 17.45 10.61 17.63 11.36 17.35C13.5 16.53 15.88 15.19 18.07 13C23.73 7.34 21.61 2.39 21.61 2.39M14.54 9.46C13.76 8.68 13.76 7.41 14.54 6.63S16.59 5.85 17.37 6.63C18.14 7.41 18.15 8.68 17.37 9.46C16.59 10.24 15.32 10.24 14.54 9.46M8.88 16.53L7.47 15.12L8.88 16.53Z"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h3>Building Reach</h3>
+              <p>Connect with others and expand your social influence</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 1L9 9H2L7 14.5L5 22L12 17.5L19 22L17 14.5L22 9H15L12 1Z"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h3>Reply Guys Will Win</h3>
+              <p>Engage, comment, and grow your presence</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,17V16H9V14H13V13H10A1,1 0 0,1 9,12V9A1,1 0 0,1 10,8H11V7H13V8H15V10H11V11H14A1,1 0 0,1 15,12V15A1,1 0 0,1 14,16H13V17H11Z"/>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h3>The Reply Community</h3>
+              <p>Turn your social activity into opportunities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+<style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #f5f8fa;
+    color: #14171a;
+  }
+  
+  .register-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 40px auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .register-card {
+    flex: 60%;
+    background-color: white;
+    padding: 40px;
+  }
+  
+  .benefits-panel {
+    flex: 40%;
+    background: linear-gradient(135deg, #1a2a4a 0%, #2e51a2 100%);
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .register-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .logo {
+    margin-bottom: 15px;
+  }
+  
+  .register-header h1 {
+    font-size: 28px;
+    color: #1a2a4a;
+    margin-bottom: 8px;
+  }
+  
+  .tagline {
+    color: #657786;
+    font-size: 16px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #14171a;
+    font-size: 14px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #14171a;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-color: #2e51a2;
+    outline: none;
+  }
+  
+  .username-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .at-symbol {
+    position: absolute;
+    left: 15px;
+    font-size: 15px;
+    color: #657786;
+  }
+  
+  .username-input input {
+    padding-left: 30px;
+  }
+  
+  .password-strength {
+    margin-top: 8px;
+  }
+  
+  .strength-bar {
+    height: 4px;
+    background-color: #e1e8ed;
+    border-radius: 2px;
+    margin-bottom: 4px;
+    position: relative;
+  }
+  
+  .strength-bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background-color: #ff4500;
+    border-radius: 2px;
+    transition: width 0.3s, background-color 0.3s;
+  }
+  
+  .strength-text {
+    font-size: 12px;
+    color: #657786;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: #2e51a2;
+  }
+  
+  .checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .x-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    fill: #1DA1F2;
+  }
+  
+  .text-link {
+    color: #2e51a2;
+    text-decoration: none;
+  }
+  
+  .text-link:hover {
+    text-decoration: underline;
+  }
+  
+  .register-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #2e51a2 0%, #4285f4 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+  }
+  
+  .register-btn:hover {
+    background: linear-gradient(135deg, #1a2a4a 0%, #2e51a2 100%);
+  }
+  
+  .register-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #657786;
+  }
+  
+  .benefits-panel h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .benefit-item {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+  }
+  
+  .benefit-icon {
+    margin-right: 15px;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .benefit-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+  }
+  
+  .benefit-text h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .benefit-text p {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
+    .register-container {
+      flex-direction: column;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    
+    .benefits-panel {
+      order: -1;
+      padding: 30px 20px;
+    }
+    
+    .register-card {
+      padding: 30px 20px;
+    }
+  }
+</style>  
+<script>
+     
+    document.addEventListener('DOMContentLoaded', function() {
+      const passwordInput = document.getElementById('password');
+      const strengthBar = document.querySelector('.strength-bar');
+      const strengthText = document.querySelector('.strength-text');
+      
+      passwordInput.addEventListener('input', function() {
+        const password = this.value;
+        let strength = 0;
+        
+        // Check password length
+        if (password.length >= 8) strength += 25;
+        
+        // Check for mixed case
+        if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength += 25;
+        
+        // Check for numbers
+        if (password.match(/\d/)) strength += 25;
+        
+        // Check for special characters
+        if (password.match(/[^a-zA-Z0-9]/)) strength += 25;
+        
+        // Update strength bar
+        strengthBar.style.setProperty('--strength-width', `${strength}%`);
+        strengthBar.style.width = `${strength}%`;
+        
+        // Update color and text based on strength
+        if (strength < 25) {
+          strengthBar.style.backgroundColor = '#ff4500';
+          strengthText.textContent = 'Weak password';
+        } else if (strength < 50) {
+          strengthBar.style.backgroundColor = '#ffa500';
+          strengthText.textContent = 'Fair password';
+        } else if (strength < 75) {
+          strengthBar.style.backgroundColor = '#ffff00';
+          strengthText.textContent = 'Good password';
+        } else {
+          strengthBar.style.backgroundColor = '#00ff00';
+          strengthText.textContent = 'Strong password';
+        }
+      });
+      
+      // Add password match validation
+      const confirmPassword = document.getElementById('confirmPassword');
+      const form = document.querySelector('.register-form');
+      
+      form.addEventListener('submit', function(e) {
+        if (passwordInput.value !== confirmPassword.value) {
+          e.preventDefault();
+          alert('Passwords do not match!');
+        }
+      });
+    });
+  
+</script>    
+</body>
+</html>
